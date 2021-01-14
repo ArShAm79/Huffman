@@ -13,6 +13,7 @@ public class Decompression {
     public Decompression(String address) {
         this.address = address;
         charData = new HashMap<>();
+        readData();
 
     }
 
@@ -63,6 +64,7 @@ public class Decompression {
         }
         return ans.toString();
     }
+
     //Convert binary code to String
     public String getData() {
         String largeData = convertToLargeString();
