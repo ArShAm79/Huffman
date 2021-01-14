@@ -44,4 +44,11 @@ public class Huffman {
             e.printStackTrace();
         }
     }
+    //Main function
+    public void function() {
+        if (compression)
+            compression();
+        else
+            decompression();
+    }
 }
