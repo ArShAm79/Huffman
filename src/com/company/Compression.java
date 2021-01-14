@@ -83,4 +83,12 @@ public class Compression {
         }
         return (char) ans;
     }
+    //Convert StringData to binaryString
+    private String stringToLargeString() {
+        StringBuilder ans = new StringBuilder();
+        for (int i = 0; i < words.length(); i++) {
+            ans.append(charData.get(words.charAt(i)));
+        }
+        return ans.toString();
+    }
 }
