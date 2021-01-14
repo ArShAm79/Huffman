@@ -15,6 +15,7 @@ public class Compression {
     private final HashMap<Character, String> charData;
     private final HashMap<Character, Integer> charCount;
     private HuffmanNode root;
+    //Constructor
 
     public Compression(String words) {
         this.words = words;
@@ -22,6 +23,7 @@ public class Compression {
         charCount = new HashMap<>();
     }
 
+    //Count  every char
     private void setCharCount() {
         String temp = words;
         while (!temp.isEmpty()) {
@@ -32,6 +34,8 @@ public class Compression {
             temp = temp.replace(c + "", "");
         }
     }
+
+    //Build tree
     private void setRoot() {
         PriorityQueue<HuffmanNode> queue = new PriorityQueue<>(charCount.size(), new ImplementComparator());
         for (char c : charCount.keySet()) {
@@ -59,4 +63,14 @@ public class Compression {
         }
     }
 
+    //Build binary code for chars
+    private void setCharData(HuffmanNode root, String value) {
+        if (root != null && root.left == null && root.right == null) {
+            charData.put(root.c, value);
+            return;
+        } else if (root == null)
+            return;
+        setCharData(root.left, value + "0");
+        setCharData(root.right, value + "1");
+    }
 }
