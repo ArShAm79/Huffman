@@ -113,5 +113,21 @@ public class Compression {
         }
         return ans.toString();
     }
+    //Write Data for file
+    public String compress() {
+        StringBuilder ans = new StringBuilder();
+        ans.append(charData.size());
+        ans.append("\n");
+        ans.append(stringToLargeString().length());
+        ans.append("\n");
+        for (var data : charData.keySet()) {
+            ans.append(data.toString());
+            ans.append(" ");
+            ans.append(charData.get(data));
+            ans.append("\n");
+        }
+        ans.append(wordCompression());
+        return ans.toString();
+    }
 
 }
