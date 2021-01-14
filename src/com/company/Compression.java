@@ -91,4 +91,23 @@ public class Compression {
         }
         return ans.toString();
     }
+    //Convert binaryString to charArray
+    private String wordCompression() {
+        String data = stringToLargeString();
+        StringBuilder ans = new StringBuilder();
+        while (!data.isEmpty()) {
+            String temp;
+            if (data.length() >= 8)
+                temp = data.substring(0, 8);
+            else
+                temp = data;
+            char c = stringToChar(temp);
+            if (data.length() >= 8)
+                data = data.substring(8);
+            else
+                data = "";
+            ans.append(c);
+        }
+        return ans.toString();
+    }
 }
