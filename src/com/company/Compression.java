@@ -73,4 +73,14 @@ public class Compression {
         setCharData(root.left, value + "0");
         setCharData(root.right, value + "1");
     }
+    //Convert binary code to char
+    private char stringToChar(String str) {
+        int ans = 0;
+        for (int i = 0; i < str.length(); i++) {
+            int num = 8 - i - 1;
+            if (str.charAt(i) == '1')
+                ans += Math.pow(2, num);
+        }
+        return (char) ans;
+    }
 }
