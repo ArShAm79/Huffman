@@ -1,6 +1,13 @@
 package com.company;
 
+import java.util.Comparator;
 import java.util.HashMap;
+
+class ImplementComparator implements Comparator<HuffmanNode> {
+    public int compare(HuffmanNode x, HuffmanNode y) {
+        return x.item - y.item;
+    }
+}
 
 public class Compression {
     private final String words;
@@ -13,6 +20,7 @@ public class Compression {
         charData = new HashMap<>();
         charCount = new HashMap<>();
     }
+
     private void setCharCount() {
         String temp = words;
         while (!temp.isEmpty()) {
@@ -23,4 +31,5 @@ public class Compression {
             temp = temp.replace(c + "", "");
         }
     }
+
 }
