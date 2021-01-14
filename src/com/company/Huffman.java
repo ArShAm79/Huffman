@@ -32,4 +32,16 @@ public class Huffman {
             e.printStackTrace();
         }
     }
+    // Read and run Class Decompression
+    private void decompression() {
+        try {
+            Decompression decompression = new Decompression(address);
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(address.substring(0, address.length() - 3) + "txt"));
+            bufferedWriter.write(decompression.getData());
+            bufferedWriter.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
