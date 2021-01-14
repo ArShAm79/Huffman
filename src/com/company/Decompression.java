@@ -39,4 +39,18 @@ public class Decompression {
             System.out.println(e.toString());
         }
     }
+    //Convert byte to binary String
+    private String charToString(char c) {
+
+        int num = c;
+        StringBuilder ans = new StringBuilder();
+        for (int i = 7; i >= 0; i--) {
+            if (Math.pow(2, i) <= num) {
+                num -= Math.pow(2, i);
+                ans.append('1');
+            } else
+                ans.append('0');
+        }
+        return ans.toString();
+    }
 }
