@@ -14,7 +14,6 @@ public class Decompression {
         this.address = address;
         charData = new HashMap<>();
         readData();
-
     }
 
     //get data from address
