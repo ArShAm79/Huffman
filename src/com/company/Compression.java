@@ -13,4 +13,14 @@ public class Compression {
         charData = new HashMap<>();
         charCount = new HashMap<>();
     }
+    private void setCharCount() {
+        String temp = words;
+        while (!temp.isEmpty()) {
+            int size;
+            char c = temp.charAt(0);
+            size = temp.length() - temp.replace(c + "", "").length();
+            charCount.put(c, size);
+            temp = temp.replace(c + "", "");
+        }
+    }
 }
