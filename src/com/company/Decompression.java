@@ -15,6 +15,7 @@ public class Decompression {
         charData = new HashMap<>();
 
     }
+
     //get data from address
     private void readData() {
         data = "";
@@ -39,9 +40,9 @@ public class Decompression {
             System.out.println(e.toString());
         }
     }
+
     //Convert byte to binary String
     private String charToString(char c) {
-
         int num = c;
         StringBuilder ans = new StringBuilder();
         for (int i = 7; i >= 0; i--) {
@@ -50,6 +51,14 @@ public class Decompression {
                 ans.append('1');
             } else
                 ans.append('0');
+        }
+        return ans.toString();
+    }
+    //Convert all bytes to binary String
+    private String convertToLargeString() {
+        StringBuilder ans = new StringBuilder();
+        for (int i = 0; i < data.length(); i++) {
+            ans.append(charToString(data.charAt(i)));
         }
         return ans.toString();
     }
