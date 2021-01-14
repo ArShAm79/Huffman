@@ -21,6 +21,9 @@ public class Compression {
         this.words = words;
         charData = new HashMap<>();
         charCount = new HashMap<>();
+        setCharCount();
+        setRoot();
+        setCharData(root, "");
     }
 
     //Count  every char
@@ -110,4 +113,5 @@ public class Compression {
         }
         return ans.toString();
     }
+
 }
