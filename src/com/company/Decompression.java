@@ -54,11 +54,32 @@ public class Decompression {
         }
         return ans.toString();
     }
+
     //Convert all bytes to binary String
     private String convertToLargeString() {
         StringBuilder ans = new StringBuilder();
         for (int i = 0; i < data.length(); i++) {
             ans.append(charToString(data.charAt(i)));
+        }
+        return ans.toString();
+    }
+    //Convert binary code to String
+    public String getData() {
+        String largeData = convertToLargeString();
+        StringBuilder ans = new StringBuilder();
+        String temp = "";
+        int i = 0;
+        while (!largeData.isEmpty() && bytes != 0) {
+            bytes--;
+            temp += largeData.charAt(i);
+            i++;
+            if (charData.containsKey(temp)) {
+                ans.append(charData.get(temp));
+                temp = "";
+                largeData = largeData.substring(i);
+                i = 0;
+            }
+
         }
         return ans.toString();
     }
