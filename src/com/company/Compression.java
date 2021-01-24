@@ -15,8 +15,8 @@ public class Compression {
     private final HashMap<Character, String> charData;
     private final HashMap<Character, Integer> charCount;
     private HuffmanNode root;
-    //Constructor
 
+    //Constructor
     public Compression(String words) {
         this.words = words;
         charData = new HashMap<>();
@@ -76,6 +76,7 @@ public class Compression {
         setCharData(root.left, value + "0");
         setCharData(root.right, value + "1");
     }
+
     //Convert binary code to char
     private char stringToChar(String str) {
         int ans = 0;
@@ -86,6 +87,7 @@ public class Compression {
         }
         return (char) ans;
     }
+
     //Convert StringData to binaryString
     private String stringToLargeString() {
         StringBuilder ans = new StringBuilder();
@@ -94,6 +96,7 @@ public class Compression {
         }
         return ans.toString();
     }
+
     //Convert binaryString to charArray
     private String wordCompression() {
         String data = stringToLargeString();
@@ -113,17 +116,18 @@ public class Compression {
         }
         return ans.toString();
     }
+
     //Write Data for file
     public String compress() {
         StringBuilder ans = new StringBuilder();
-        ans.append(charData.size());
+        ans.append(charCount.size());
         ans.append("\n");
         ans.append(stringToLargeString().length());
         ans.append("\n");
-        for (var data : charData.keySet()) {
+        for (var data : charCount.keySet()) {
             ans.append(data.toString());
             ans.append(" ");
-            ans.append(charData.get(data));
+            ans.append(charCount.get(data));
             ans.append("\n");
         }
         ans.append(wordCompression());

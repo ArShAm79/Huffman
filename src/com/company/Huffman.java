@@ -12,7 +12,7 @@ public class Huffman {
     //Constructor
     public Huffman(String address) {
         this.address = address;
-        compression = address.endsWith("txt");
+        compression = address.endsWith("txt.txt");
     }
     // Read and run Class Compression
     private void compression() {
@@ -36,7 +36,7 @@ public class Huffman {
     private void decompression() {
         try {
             Decompression decompression = new Decompression(address);
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(address.substring(0, address.length() - 3) + "txt"));
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(address.substring(0, address.length() - 3) + "txt.txt"));
             bufferedWriter.write(decompression.getData());
             bufferedWriter.close();
 

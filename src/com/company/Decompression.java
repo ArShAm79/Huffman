@@ -10,6 +10,7 @@ public class Decompression {
     private final HashMap<String, Character> charData;
     private double bytes;
 
+    //Constructor
     public Decompression(String address) {
         this.address = address;
         charData = new HashMap<>();
