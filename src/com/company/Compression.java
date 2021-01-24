@@ -12,7 +12,7 @@ class ImplementComparator implements Comparator<HuffmanNode> {
 
 public class Compression {
     private final String words;
-    private final HashMap<Character, String> charData;
+    private HashMap<Character, String> charData;
     private final HashMap<Character, Integer> charCount;
     private HuffmanNode root;
 
@@ -22,8 +22,8 @@ public class Compression {
         charData = new HashMap<>();
         charCount = new HashMap<>();
         setCharCount();
-        setRoot();
-        setCharData(root, "");
+        SetRoot setRoot=new SetRoot(root,charCount);
+        charData=setRoot.getCharData();
     }
 
     //Count  every char
