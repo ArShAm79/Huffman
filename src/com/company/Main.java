@@ -8,7 +8,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 	// write your code here
-        Huffman huffman=new Huffman("txt.txt");
+        Huffman huffman=new Huffman("txt.cmp");
         huffman.function();
 
     }

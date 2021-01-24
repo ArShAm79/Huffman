@@ -8,11 +8,13 @@ public class Decompression {
     private String data;
     private final String address;
     private final HashMap<String, Character> charData;
+    private final HashMap<Character, Integer> charCount;
     private double bytes;
 
     //Constructor
     public Decompression(String address) {
         this.address = address;
+        this.charCount = new HashMap<>();
         charData = new HashMap<>();
         readData();
     }
@@ -31,7 +33,7 @@ public class Decompression {
                     tempData = "\n" + bufferedReader.readLine();
                 char c = tempData.charAt(0);
                 String code = tempData.substring(2);
-                charData.put(code, c);
+                charCount.put(c, Integer.parseInt(code));
             }
             while (bufferedReader.ready()) {
                 stringBuilder.append(bufferedReader.readLine()).append("\n");
