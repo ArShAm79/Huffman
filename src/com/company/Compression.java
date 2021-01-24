@@ -13,7 +13,6 @@ public class Compression {
     private final String words;
     private HashMap<Character, String> charData;
     private final HashMap<Character, Integer> charCount;
-    private HuffmanNode root;
 
     //Constructor
     public Compression(String words) {
@@ -21,8 +20,8 @@ public class Compression {
         charData = new HashMap<>();
         charCount = new HashMap<>();
         setCharCount();
-        SetRoot setRoot=new SetRoot(root,charCount);
-        charData=setRoot.getCharDataCompression();
+        SetRoot setRoot = new SetRoot(null, charCount);
+        charData = setRoot.getCharDataCompression();
     }
 
     //Count  every char

@@ -3,14 +3,12 @@ package com.company;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.HashMap;
-import java.util.PriorityQueue;
 
 public class Decompression {
     private String data;
     private final String address;
     private  HashMap<String, Character> charData;
     private final HashMap<Character, Integer> charCount;
-    private HuffmanNode root;
     private double bytes;
 
     //Constructor
@@ -19,7 +17,7 @@ public class Decompression {
         this.charCount = new HashMap<>();
         charData = new HashMap<>();
         readData();
-        SetRoot setRoot=new SetRoot(root,charCount);
+        SetRoot setRoot=new SetRoot(null,charCount);
         charData=setRoot.getCharDataDecompression();
 
     }
