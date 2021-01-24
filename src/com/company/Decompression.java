@@ -18,9 +18,10 @@ public class Decompression {
         this.address = address;
         this.charCount = new HashMap<>();
         charData = new HashMap<>();
-        SetRoot setRoot=new SetRoot(null,charCount);
-
         readData();
+        SetRoot setRoot=new SetRoot(root,charCount);
+        charData=setRoot.getCharDataDecompression();
+
     }
 
 
