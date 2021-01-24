@@ -2,7 +2,6 @@ package com.company;
 
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.PriorityQueue;
 
 class ImplementComparator implements Comparator<HuffmanNode> {
     public int compare(HuffmanNode x, HuffmanNode y) {
@@ -23,7 +22,7 @@ public class Compression {
         charCount = new HashMap<>();
         setCharCount();
         SetRoot setRoot=new SetRoot(root,charCount);
-        charData=setRoot.getCharData();
+        charData=setRoot.getCharDataCompression();
     }
 
     //Count  every char

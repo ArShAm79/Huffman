@@ -6,12 +6,14 @@ import java.util.PriorityQueue;
 public class SetRoot {
     private HuffmanNode root;
     private final HashMap<Character, Integer> charCount;
-    private final HashMap<Character, String> charData;
+    private final HashMap<Character, String> charDataCompression;
+    private final HashMap<Character, String> charDataDecompression;
 
     public SetRoot(HuffmanNode root, HashMap<Character, Integer> charCount) {
         this.root = root;
         this.charCount = charCount;
-        charData = new HashMap<>();
+        charDataCompression = new HashMap<>();
+        charDataDecompression=new HashMap<>();
 
     }
 
@@ -42,20 +44,20 @@ public class SetRoot {
         }
     }
 
-    private void setCharData(HuffmanNode root, String value) {
+    private void setCharDataCompression(HuffmanNode root, String value) {
         if (root != null && root.left == null && root.right == null) {
-            charData.put(root.c, value);
+            charDataCompression.put(root.c, value);
             return;
         } else if (root == null)
             return;
-        setCharData(root.left, value + "0");
-        setCharData(root.right, value + "1");
+        setCharDataCompression(root.left, value + "0");
+        setCharDataCompression(root.right, value + "1");
     }
 
-    public HashMap<Character, String> getCharData() {
+    public HashMap<Character, String> getCharDataCompression() {
         setRoot();
-        setCharData(root, "");
-        return charData;
+        setCharDataCompression(root, "");
+        return charDataCompression;
     }
 
 }

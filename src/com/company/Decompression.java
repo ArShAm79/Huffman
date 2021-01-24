@@ -8,7 +8,7 @@ import java.util.PriorityQueue;
 public class Decompression {
     private String data;
     private final String address;
-    private final HashMap<String, Character> charData;
+    private  HashMap<String, Character> charData;
     private final HashMap<Character, Integer> charCount;
     private HuffmanNode root;
     private double bytes;
@@ -18,6 +18,8 @@ public class Decompression {
         this.address = address;
         this.charCount = new HashMap<>();
         charData = new HashMap<>();
+        SetRoot setRoot=new SetRoot(null,charCount);
+
         readData();
     }
 
