@@ -42,6 +42,7 @@ public class SetRoot {
             root = huffmanNode;
             queue.add(huffmanNode);
         }
+        Printer.printNode(root);
     }
 
     private void setCharDataCompression(HuffmanNode root, String value) {
