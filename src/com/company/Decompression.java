@@ -7,7 +7,7 @@ import java.util.HashMap;
 public class Decompression {
     private String data;
     private final String address;
-    private  HashMap<String, Character> charData;
+    private HashMap<String, Character> charData;
     private final HashMap<Character, Integer> charCount;
     private double bytes;
 
@@ -17,8 +17,8 @@ public class Decompression {
         this.charCount = new HashMap<>();
         charData = new HashMap<>();
         readData();
-        SetRoot setRoot=new SetRoot(null,charCount);
-        charData=setRoot.getCharDataDecompression();
+        SetRoot setRoot = new SetRoot(null, charCount);
+        charData = setRoot.getCharDataDecompression();
 
     }
 

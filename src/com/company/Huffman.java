@@ -14,6 +14,7 @@ public class Huffman {
         this.address = address;
         compression = address.endsWith("txt");
     }
+
     // Read and run Class Compression
     private void compression() {
         try {
@@ -32,6 +33,7 @@ public class Huffman {
             e.printStackTrace();
         }
     }
+
     // Read and run Class Decompression
     private void decompression() {
         try {
@@ -44,6 +46,7 @@ public class Huffman {
             e.printStackTrace();
         }
     }
+
     //Main function
     public void function() {
         if (compression)

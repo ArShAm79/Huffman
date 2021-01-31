@@ -18,7 +18,7 @@ class Printer {
             return;
 
         int floor = maxLevel - level;
-        int endgeLines = (int) Math.pow(2, (Math.max(floor - 1, 0)));
+        int endLines = (int) Math.pow(2, (Math.max(floor - 1, 0)));
         int firstSpaces = (int) Math.pow(2, (floor)) - 1;
         int betweenSpaces = (int) Math.pow(2, (floor + 1)) - 1;
 
@@ -27,7 +27,12 @@ class Printer {
         List<HuffmanNode> newNodes = new ArrayList<>();
         for (HuffmanNode node : nodes) {
             if (node != null) {
-                System.out.print(node.c + ((node.item == '-') ? "-" + node.item : ""));
+                if (node.c == '\n')
+                    System.out.print("nL" + ((node.item == '-') ? "-" + node.item : ""));
+                else if (node.c == ' ')
+                    System.out.print("Sp" + ((node.item == '-') ? "-" + node.item : ""));
+                else
+                    System.out.print(node.c + ((node.item == '-') ? "-" + node.item : ""));
                 newNodes.add(node.left);
                 newNodes.add(node.right);
             } else {
@@ -40,11 +45,11 @@ class Printer {
         }
         System.out.println();
 
-        for (int i = 1; i <= endgeLines; i++) {
+        for (int i = 1; i <= endLines; i++) {
             for (HuffmanNode node : nodes) {
                 Printer.printWhitespaces(firstSpaces - i);
                 if (node == null) {
-                    Printer.printWhitespaces(endgeLines + endgeLines + i + 1);
+                    Printer.printWhitespaces(endLines + endLines + i + 1);
                     continue;
                 }
 
@@ -60,7 +65,7 @@ class Printer {
                 else
                     Printer.printWhitespaces(1);
 
-                Printer.printWhitespaces(endgeLines + endgeLines - i);
+                Printer.printWhitespaces(endLines + endLines - i);
             }
 
             System.out.println();
